@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\TestController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,10 @@ use App\Http\Controllers\Api\TestController;
 |
 */
 
-Route::get('/', function () {
-    return view('index/index');
-});
+Route::get('/', [HomePageController::class, "index"]);
 Route::view("/about-us", "about/about-us");
 Route::get("/api/test/array", [TestController::class, "arrayResponse"]);
 Route::get("/api/test/model", [TestController::class, "modelResponse"]);
 Route::get("/api/test/collection", [TestController::class, "collectionResponse"]);
+
+Route::get('/home', [HomeController::class, "home"]);

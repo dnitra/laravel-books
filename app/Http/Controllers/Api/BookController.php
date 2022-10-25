@@ -18,4 +18,7 @@ class BookController extends Controller
             ->get();
         return $books;
     }
+    public function latestCrime(){
+        return Book::
+    }
 }
